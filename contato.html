@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a Art Store — tire dúvidas, peça artes personalizadas.">
+    <meta name="author" content="Art Store">
+    <meta name="keywords" content="contato, dúvidas, encomendas, orçamento">
+    <title>Contato | Art Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Arts/Marca-Giu.jpg" type="image/x-icon">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="barra-topo">
+            <span>🔒 Compra segura</span>
+            <span>💬 Atendimento online</span>
+        </div>
+
+        <a href="index.html" class="logo" style="text-decoration: none; display: flex; align-items: center; gap: 8px;">
+            <img src="Arts/Marca-Giu.jpg" alt="Logo Art Store" style="height: 40px; width: auto; display: block;">
+            <span>ART</span><strong>STORE</strong>
+        </a>
+
+        <nav class="menu" aria-label="Navegação principal">
+            <a href="index.html">Início</a>
+            <a href="quadros.html">Quadros</a>
+            <a href="esculturas.html">Esculturas</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="carrinho.html" class="icone-carrinho" aria-label="Ver carrinho">
+                🛒
+                <span class="contador-carrinho">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <div style="max-width: 700px; margin: 0 auto;">
+            <h2 class="titulo-secao" style="margin-bottom: 30px;">Entre em Contato</h2>
+            <div style="background: #fff; padding: 40px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 30px;">
+                <p style="text-align: center; color: #666; margin-bottom: 30px;">
+                    Tem dúvida, quer uma peça personalizada ou precisa de ajuda? É só mandar uma mensagem! 💬
+                </p>
+                <form action="https://formsubmit.co/Giulianoulticha95@hotmail.com" method="POST"
+                      style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="hidden" name="_subject" value="Nova mensagem do site Art Store">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500; color: #333;">Seu Nome</label>
+                        <input type="text" name="nome" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500; color: #333;">Seu E-mail</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500; color: #333;">Assunto</label>
+                        <select name="assunto" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; background: #fff;">
+                            <option>Dúvida sobre produto</option>
+                            <option>Arte / Peça personalizada</option>
+                            <option>Orçamento</option>
+                            <option>Pedido e entrega</option>
+                            <option>Outro assunto</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500; color: #333;">Sua Mensagem</label>
+                        <textarea name="mensagem" rows="5" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 15px; resize: vertical;" placeholder="Escreva aqui o que você precisa..."></textarea>
+                    </div>
+                    <button type="submit" style="margin-top: 10px; padding: 14px; background: #1a1a1a; color: #fff; border: none; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                        Enviar Mensagem ✉️
+                    </button>
+                </form>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                <div style="background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee; text-align: center;">
+                    <strong style="display: block; margin-bottom: 5px;">📧 E-mail</strong>
+                    <span style="color: #555; font-size: 14px;">Giulianoulticha95@hotmail.com</span>
+                </div>
+                <div style="background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee; text-align: center;">
+                    <strong style="display: block; margin-bottom: 5px;">📞 WhatsApp</strong>
+                    <span style="color: #555; font-size: 14px;">(42) 99839-8375</span>
+                </div>
+                <div style="background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee; text-align: center;">
+                    <strong style="display: block; margin-bottom: 5px;">⏰ Atendimento</strong>
+                    <span style="color: #555; font-size: 14px;">Seg a Sex, 9h–18h</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <div class="rodape-logo">
+                <h3>ARTSTORE</h3>
+                <p>Artes únicas para decorar sua vida.</p>
+            </div>
+            <div class="rodape-links">
+                <h4>Links Rápidos</h4>
+                <a href="index.html">Início</a>
+                <a href="quadros.html">Quadros</a>
+                <a href="esculturas.html">Esculturas</a>
+                <a href="sobre.html">Sobre Nós</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="rodape-atendimento">
+                <h4>Atendimento</h4>
+                <p>📧 Giulianoulticha95@hotmail.com</p>
+                <p>📞 (42) 99839-8375</p>
+                <p>Seg a Sex | 9h às 18h</p>
+            </div>
+            <div class="rodape-pagamento">
+                <h4>Formas de Pagamento</h4>
+                <p>💳 Pix • Cartão • Boleto</p>
+            </div>
+        </div>
+        <div class="rodape-copyright">
+            <p>&copy; 2026 Art Store | Todos os direitos reservados.</p>
+            <p>Desenvolvido por <a href="https://www.instagram.com/infiniitycode/" target="_blank" style="color: inherit;">infiniitycode</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seu carrinho de compras — Art Store">
+    <title>Carrinho | Art Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Arts/Marca-Giu.jpg" type="image/x-icon">
+    <style>
+        /* Centraliza todo o conteúdo do carrinho na tela */
+        .conteudo-carrinho {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto 80px auto;
+            padding: 0 20px;
+        }
+        .titulo-pagina {
+            font-size: 32px;
+            color: #222;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e5e5;
+        }
+        .grade-carrinho {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+        }
+        .bloco-itens h2, .bloco-resumo h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .caixa-resumo {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .linha-valor {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            font-size: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .linha-valor.total {
+            border-bottom: none;
+            padding-top: 18px;
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #111;
+        }
+        .grupo-botoes {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .botao-destaque {
+            flex: 1;
+            padding: 14px 20px;
+            background: #111;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .botao-destaque:hover {
+            background: #333;
+        }
+        .botao-secundario {
+            padding: 14px 20px;
+            background: #f5f5f5;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .botao-secundario:hover {
+            background: #eaeaea;
+        }
+        .estado-vazio {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .estado-vazio .icone-vazio {
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+        .estado-vazio h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .estado-vazio p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+        .item-carrinho {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .quantidade {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantidade button {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .remover {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* Responsivo para celular */
+        @media (max-width: 900px) {
+            .grade-carrinho {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==============================================
+                        CABEÇALHO
+    =============================================== -->
+    <header class="cabecalho">
+        <div class="barra-topo">
+            <span>🔒 Compra segura</span>
+            <span>💬 Atendimento online</span>
+        </div>
+
+        <a href="index.html" class="logo">
+            <img src="Arts/Marca-Giu.jpg" alt="Logo Art Store">
+            <span>ART</span><strong>STORE</strong>
+        </a>
+
+        <nav class="menu">
+            <a href="index.html">Início</a>
+            <a href="quadros.html">Quadros</a>
+            <a href="esculturas.html">Esculturas</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+
+        <div class="acoes">
+            <a href="https://wa.me/5542998398375?text=Olá! Gostaria de mais informações." target="_blank" class="icone-whatsapp">💬</a>
+            <a href="carrinho.html" class="icone-carrinho ativo">
+                🛒
+                <span class="contador-carrinho">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ==============================================
+                    CONTEÚDO PRINCIPAL — CENTRALIZADO
+    =============================================== -->
+    <main class="conteudo-carrinho">
+
+        <h1 class="titulo-pagina">Seu Carrinho</h1>
+
+        <!-- 🛒 Carrinho VAZIO -->
+        <div id="carrinho-vazio" class="estado-vazio">
+            <div class="icone-vazio">🛒</div>
+            <h2>Seu carrinho está vazio</h2>
+            <p>Ainda não há artes no seu carrinho. Explore nossas peças exclusivas e encontre algo especial!</p>
+            <a href="index.html" class="botao-destaque">Explorar Produtos</a>
+        </div>
+
+        <!-- ✅ Carrinho COM ITENS -->
+        <div id="carrinho-resumo" class="grade-carrinho">
+
+            <!-- Lista de Itens -->
+            <div class="bloco-itens">
+                <h2>Itens Selecionados</h2>
+                <div id="carrinho-lista"></div>
+            </div>
+
+            <!-- Resumo dos Valores -->
+            <div class="bloco-resumo">
+                <h2>Resumo do Pedido</h2>
+                <div class="caixa-resumo">
+                    <div class="linha-valor">
+                        <span>Subtotal</span>
+                        <span id="subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="linha-valor total">
+                        <strong>Total</strong>
+                        <strong id="total">R$ 0,00</strong>
+                    </div>
+                </div>
+
+                <div class="grupo-botoes">
+                    <button id="botao-limpar" class="botao-secundario">🗑️ Limpar Carrinho</button>
+                    <button id="botao-finalizar" class="botao-destaque">✅ Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ==============================================
+                        RODAPÉ
+    =============================================== -->
+    <footer class="rodape">
+        <div class="container-rodape">
+            <div class="coluna-rodape">
+                <h4>Art Store</h4>
+                <p>Artes originais e exclusivas para decorar com personalidade.</p>
+            </div>
+            <div class="coluna-rodape">
+                <h4>Links Rápidos</h4>
+                <a href="index.html">Início</a>
+                <a href="quadros.html">Quadros</a>
+                <a href="esculturas.html">Esculturas</a>
+                <a href="sobre.html">Sobre Nós</a>
+                <a href="contato.html">Contato</a>
+            </div>
+            <div class="coluna-rodape">
+                <h4>Atendimento</h4>
+                <p>📧 giu@artstore.com.br</p>
+                <p>📞 (42) 99839-8375</p>
+                <p>Seg a Sex — 9h às 18h</p>
+            </div>
+            <div class="coluna-rodape">
+                <h4>Siga-nos</h4>
+                <a href="https://instagram.com/infiniitycode" target="_blank">📷 @infiniitycode</a>
+            </div>
+        </div>
+        <div class="base-rodape">
+            <p>&copy; 2026 Art Store — Todos os direitos reservados.</p>
+            <p>Desenvolvido por <a href="https://instagram.com/infiniitycode" target="_blank">infiniitycode</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
